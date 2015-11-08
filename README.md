@@ -1,0 +1,2 @@
+# Undirbuningur
+Undirbuningur fyrir lokaverkefni

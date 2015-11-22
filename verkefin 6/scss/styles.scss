@@ -2,7 +2,7 @@
 @mixin common {
   width: 100%;
 }
-@mixin customBorder ($width: 0.5em, $color: black, $style: solid, $radius: 0.4em){
+@mixin customBorder ($width: 0.1em, $color: black, $style: solid, $radius: 0.4em){
   border:{
     width: $width;
     color: $color;
@@ -10,36 +10,8 @@
     radius: $radius;
   }
 }
+$mainColor: #74B2D3;
 
-body {
-  line-height: 1.2;
-  font-size: .9em;
-  background-image: url(../media/images/ocean-2.jpg);
-  @include common;
-  @include customBorder;
-}
-
-a {
-  -webkit-transition: background 1s; /* For Safari 3.1 to 6.0 */
-    transition: background 1s;
-  &:hover { 
-    background: red;
-    radius: 3px;};
-  &:visited {
-    color: #9E0089
-  };  
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-li {
-  display: inline;
-}
-.logo {
-  margin-top: 3em;
-}
 /*
   ========================================
   Grid
@@ -97,6 +69,7 @@ li {
 .group {
   clear: both;
   *zoom: 1;
+  background-color: lighten($mainColor, 30%);
 }
 /*
   ========================================
@@ -108,6 +81,95 @@ li {
 }
 .flright {
   float: right;
+}
+
+
+body {
+  line-height: 1.2;
+  font-size: .9em;
+  background-image: url(../media/images/ocean-2.jpg);
+  @include common;
+}
+
+a {
+  transition: background 1s;
+}
+
+.nav{
+    list-style: none;
+    font-weight: bold;
+    margin-bottom: 1em;
+    float: left; 
+    width: 100%;
+}
+
+.nav li{
+    float: left;
+    position: relative;
+}
+
+.nav a{
+    display: block;
+    padding: 0.4em;
+    color: black;
+    background: lighten($mainColor, 20%);
+}
+
+.nav a:hover{
+    color: black;
+    background: $mainColor;
+}
+
+/*--- DROPDOWN ---*/
+.nav ul{
+    list-style: none;
+    position: absolute;
+    display: none;
+}
+.nav ul li{
+    float: none;
+}
+.nav li:hover ul{ 
+    display: inline-block;
+}
+.nav li:hover a{ 
+    background: $mainColor;
+}
+
+.nav li:hover ul li a:hover{ 
+    background: lighten($mainColor, 20%);
+}
+
+.logo {
+  margin-top: 3em;
+}
+
+footer {
+  text-align: center;
+}
+
+.footerBack {
+  background-color: $mainColor;
+}
+
+.hlekkir {
+  padding: 1em;
+  margin: 1em;
+  background-color: lighten($mainColor, 10%);
+  @include customBorder;
+}
+
+.hlekkir a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  &:hover {
+    background: $mainColor;
+  }
+}
+
+h1 {
+  padding-left: 1em;
 }
 /*Responsive web design - breakpoints - 30em - 48em - 60em*/
 
